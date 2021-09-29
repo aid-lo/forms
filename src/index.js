@@ -1,24 +1,4 @@
-(function (root, node, browser) {
-	if (typeof exports === 'object') module.exports = node();
-	else root.FormMan = browser(node());
-}(this,
-
-/**
- * @returns {{}} An object that will be available in BOTH Node & a browser.
- */
-() => {
-	return {
-		validateEmail: string => {
-			return /^[^@.\s][^@\s]*@[^.@\s]+\.[^@\s]{2,}$/.test(string);
-		}
-	};
-},
-
-/**
- * @param formMan Logic from the previous block.
- * @returns {{}} An object that will be available in browser ONLY.
- */
-formMan => {
+FormMan = () => {
 
 	/**
 	 * @callback InputValidateCallback A callback used to validate an input before submitting a form.
@@ -186,4 +166,4 @@ formMan => {
 	};
 
 	return formMan;
-}));
+};
